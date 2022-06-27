@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭頭函數實踐</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #58a;
+        }
+    </style>
+</head>
+<body>
+    <div id="ad"></div>
+
+    <script>
+        // 需求-1 點擊 div 2s 後顏色變成粉色
+        // 獲取元素
+        let ad = document.getElementById('ad');
+
+        // 綁訂事件
+        ad.addEventListener('click',  function () {
+            // 保存 this 的值
+            // let _this = this;
+
+            // 定時器
+            setTimeout(() => {
+                // 修改背景顏色
+                this.style.background = 'pink';
+            }, 2000);
+        });
+
+        // 需求-2 從陣列中返回偶數的元素
+        const arr = [1, 6, 9, 10, 100, 25];
+        // const result = arr.filter(function (item) {
+        //     if (item % 2 === 0) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // });
+
+        const result = arr.filter(item => item % 2 === 0);
+        console.log(result);
+
+        // 箭頭函數適合與 this 無關的回調。定時器、陣列的方法回調
+        // 箭頭函數不適合與 this 有關的回調。事件回調、物件的方法
+    </script>
+</body>
+</html>
